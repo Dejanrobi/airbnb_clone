@@ -1,0 +1,7 @@
+#favicon {
+    /* Add your styling here */
+    width: 2px; /* Set the width */
+    height: 2px; /* Set the height */
+    border: 2px solid #fff; /* Add a border */
+    border-radius: 50%; /* Make it circular */
+  }
