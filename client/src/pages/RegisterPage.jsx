@@ -26,7 +26,7 @@ const RegisterPage = () => {
       // console.log(registered);
       if(data){
         localStorage.setItem('https://www.airbnb.com/-token', data.token)
-        alert('Registration Successful');
+        // alert('Registration Successful');
         
         window.location.reload();
       }

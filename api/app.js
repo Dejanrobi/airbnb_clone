@@ -24,7 +24,8 @@ const app = express();
 // implementing cors
 app.use(cors({
     credentials: true,
-    origin: `${process.env.CLIENT_ORIGIN}`
+    origin: `http://localhost:5173`,
+    // origin: `${process.env.CLIENT_ORIGIN}`
 }))
 
 // patching all json
@@ -49,7 +50,7 @@ app.use(errorHandlerMiddleware);
 
 
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 8000;
 
 // starting the server
 const start = async()=>{

@@ -6,6 +6,8 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 const MainPage = () => {
+  const photoBaseUrl = import.meta.env.VITE_PHOTO_BASEURL
+
   const [allPlaces, setAllPlaces] = useState([])
 
   const getAllPlaces=async()=>{
@@ -28,7 +30,7 @@ const MainPage = () => {
           <Link to={`/place/${place._id}`} key={place._id}>
             <div className='bg-gray-500  rounded-2xl h-80 w-80'>
               {place.photos?.[0] &&(
-                <img className='rounded-2xl w-full h-full object-cover' src={'http://localhost:4000/uploads/'+place.photos?.[0]} alt={place.title} />
+                <img className='rounded-2xl w-full h-full object-cover' src={`${photoBaseUrl}`+place.photos?.[0]} alt={place.title} />
               )}
             </div>
 

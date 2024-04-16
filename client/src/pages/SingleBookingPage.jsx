@@ -21,7 +21,9 @@ const SingleBookingPage = () => {
 
         
         axios.get(`/bookings/get-single-booking/${action}`, airbnbHeader).then(({data})=>{
-          setSingleBooking(data)
+          setSingleBooking(data) 
+          console.log(data);
+
           
         }).catch((error)=>{
           console.log(error)

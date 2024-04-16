@@ -22,8 +22,8 @@ const LoginPage = () => {
       
       if(data){
         localStorage.setItem('https://www.airbnb.com/-token', data.token)
-        alert('Login Successful');    
-        setLoading(true)      
+        // alert('Login Successful');    
+        // setLoading(true)      
         window.location.reload();
       }
 
