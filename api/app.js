@@ -28,6 +28,9 @@ app.use(cors({
     // origin: `${process.env.CLIENT_ORIGIN}`
 }))
 
+
+
+
 // patching all json
 app.use(express.json())
 
