@@ -21,14 +21,23 @@ const authenticationMiddleware = require('./middleware/authentication');
 // invoking express
 const app = express();
 
-// implementing cors
+const allowedOrigins = [
+    'http://localhost:5173',
+    'http://localhost:3000',
+    'https://airbnb-clone-frontend-m6np.onrender.com'
+];
+
 app.use(cors({
     credentials: true,
-    origin: `http://localhost:5173`,
-    // origin: `${process.env.CLIENT_ORIGIN}`
-}))
-
-
+    origin: (origin, callback) => {
+        // Check if the origin is in the allowedOrigins array or if it's undefined (for localhost)
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    }
+}));
 
 
 // patching all json

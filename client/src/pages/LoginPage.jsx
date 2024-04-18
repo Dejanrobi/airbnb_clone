@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { userGlobalContext } from '../context/UserContext'
 import axios from 'axios'
 
@@ -10,9 +10,12 @@ const LoginPage = () => {
 
   // userGlobalContext
   const { user, setUser, setLoading } = userGlobalContext()
+  const navigate = useNavigate();
 
   const loginUser =async (e)=>{
     e.preventDefault();
+
+    
     try {
       const { data } = await axios.post('/auth/login', {
         email,
@@ -24,8 +27,10 @@ const LoginPage = () => {
         localStorage.setItem('https://www.airbnb.com/-token', data.token)
         // alert('Login Successful');    
         // setLoading(true)      
+        navigate('/')
         window.location.reload();
       }
+      
 
               
     } catch (error) {
@@ -33,6 +38,8 @@ const LoginPage = () => {
       // console.log(error.response.data.msg)      
     }
   }
+
+ 
 
 
   return (

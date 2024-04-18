@@ -1,7 +1,9 @@
 import React from 'react'
 
 const PhotosUploader = ({ uploadPhoto, addPhotoByLink, addedPhotos, setAddedPhotos, photoLink, setPhotoLink }) => {
-  function removePhoto(e, link){
+    const photoBaseUrl = import.meta.env.VITE_PHOTO_BASEURL
+ 
+    function removePhoto(e, link){
     e.preventDefault()
     // console.log(filename)
 
@@ -32,7 +34,7 @@ const PhotosUploader = ({ uploadPhoto, addPhotoByLink, addedPhotos, setAddedPhot
                     <>
                         {addedPhotos.length > 0 && addedPhotos.map((link)=>(
                             <div  className=' h-36 relative' key={link}>
-                                <img className='rounded-2xl h-full w-full object-cover ' src={'http://localhost:4000/uploads/'+link} alt=""  />
+                                <img className='rounded-2xl h-full w-full object-cover ' src={`${photoBaseUrl}`+link} alt=""  />
 
                                 <button onClick={(e)=>removePhoto(e, link)}  className=' cursor-pointer absolute bottom-2 right-2 hover:bg-primary hover:bg-opacity-70 text-white bg-black p-2  bg-opacity-60 rounded-full'>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">

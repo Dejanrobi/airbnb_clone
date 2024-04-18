@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, Navigate } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 
 import axios from 'axios';
 
@@ -9,12 +9,13 @@ const RegisterPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [redirect, setRedirect] = useState(false);
+  const navigate = useNavigate();
 
   // register user function
   const registerUser= async(e)=>{
     e.preventDefault();
     
-
+    
     //  registering the user
     try {
       const { data } = await axios.post('/auth/register', {
@@ -28,14 +29,20 @@ const RegisterPage = () => {
         localStorage.setItem('https://www.airbnb.com/-token', data.token)
         // alert('Registration Successful');
         
+        // window.location.reload();
+        navigate('/')
         window.location.reload();
+        
       }
+      
       
     } catch (error) {
       alert(error.response.data.msg);
       // console.log(error)
       
     }
+
+    
     
     
 
