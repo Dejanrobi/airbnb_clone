@@ -67,7 +67,7 @@ const SingleBookingPage = () => {
             <div className='bg-primary p-6 text-white rounded-2xl'>
               
               <div >Total Price</div>
-              <div className='text-3xl'>${singleBooking.price}</div>
+              <div className='text-3xl'>${singleBooking.price*(differenceInCalendarDays(new Date(checkOut), new Date(checkIn)))}</div>
             </div>
             
           </div>

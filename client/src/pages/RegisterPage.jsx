@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 
 import axios from 'axios';
+import { loadingTwoGif } from '../assets';
 
 const RegisterPage = () => {
   // user details
@@ -11,9 +12,14 @@ const RegisterPage = () => {
   const [redirect, setRedirect] = useState(false);
   const navigate = useNavigate();
 
+  const [loadingButton, setLoadingButton] = useState(false);
+  
+
   // register user function
   const registerUser= async(e)=>{
     e.preventDefault();
+
+    setLoadingButton(true);
     
     
     //  registering the user
@@ -30,7 +36,8 @@ const RegisterPage = () => {
         // alert('Registration Successful');
         
         // window.location.reload();
-        navigate('/')
+        setLoadingButton(false)
+        navigate('/account')
         window.location.reload();
         
       }
@@ -38,6 +45,7 @@ const RegisterPage = () => {
       
     } catch (error) {
       alert(error.response.data.msg);
+      setLoadingButton(false)
       // console.log(error)
       
     }
@@ -69,7 +77,19 @@ const RegisterPage = () => {
             value={password}
             onChange={(e)=>{setPassword(e.target.value)}}
           />
-          <button type='submit' className='primary'>Register</button>
+
+          {
+            loadingButton?(
+              <button disabled className='primary disabled-button'>
+                <img src={loadingTwoGif} alt="" />
+              </button>
+            ):(
+              <button type='submit' className='primary'>Register</button>
+            )
+          }
+          
+
+          
           <div className="text-center py-8 text-gray-500">
             Already have an account? <Link className='underline text-black' to={'/login'}>Login</Link>
           </div>

@@ -1,0 +1,17 @@
+.disabled-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.disabled-button img{
+
+    
+    width: 24px;
+}
+
+.test-account{
+    text-align: center;
+
+    margin-bottom: 30px;
+}

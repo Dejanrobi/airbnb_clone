@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+import '../css/BookingsPage.css';
+
 import { Link, useParams } from 'react-router-dom'
 import { userGlobalContext } from '../context/UserContext';
 import axios from 'axios';
@@ -8,9 +10,13 @@ import PlaceImage from '../components/PlaceImage';
 import { differenceInCalendarDays, format } from 'date-fns';
 import BookingDates from '../components/BookingDates';
 
+
+
 const BookingsPage = () => {
 
     const { action } = useParams();
+
+    console.log("Action: ", action);
     const { getHeaders } = userGlobalContext();
 
     const [myBookings, setMyBookings] = useState([]);
@@ -60,7 +66,7 @@ const BookingsPage = () => {
                                         </div>
                                         
                                         <div>
-                                            <span className=''>Total Price:</span> ${booking.price}
+                                            <span className=''>Total Price:</span> ${booking?.price *(differenceInCalendarDays(new Date(booking?.checkOut), new Date(booking?.checkIn)))}
 
                                         </div>
                                         
@@ -76,6 +82,22 @@ const BookingsPage = () => {
                 </div>
 
             )
+        }
+
+        {
+
+            !action &&(
+                <div>
+                    {
+                        myBookings?.length<1 && (
+                            <div className='no-bookings-div'>
+                                <p>You have no bookings</p>
+                            </div>
+                        )
+                    }
+                </div>
+            )
+
         }
 
         {

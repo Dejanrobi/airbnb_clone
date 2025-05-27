@@ -4,10 +4,14 @@ import { differenceInCalendarDays } from 'date-fns'
 import { userGlobalContext } from '../context/UserContext';
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
+import { loadingTwoGif } from '../assets';
+
+import '../css/BookingWidget.css';
 
 const BookingWidget = ({place}) => {
 
     const { user,getHeaders } = userGlobalContext();
+    const airbnbHeader = getHeaders();
 
 
     const [checkIn, setCheckIn] = useState('');
@@ -15,6 +19,21 @@ const BookingWidget = ({place}) => {
     const [numberOfGuests, setNumberOfGuests] = useState(1);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+
+    const [bookingAlert, setBookingAlert] = useState({
+        popup: false,
+        message: 'Booking successfull',
+        color: 'green'
+    })
+
+    const [bookingLoad, setBookingLoad] = useState(false);
+
+
+    const updateBookingAlert=(popup, message, color)=>{
+        setBookingAlert({popup, message, color})
+    }
+
+    
 
     let numberOfNights = 0;
     if(checkIn && checkOut){
@@ -24,9 +43,10 @@ const BookingWidget = ({place}) => {
     
     useEffect(()=>{
         if(user){
-            setName(user.userName)
+            setName(user?.userName)
+            setEmail(user?.userEmail)
         }
-        // console.log({user})
+        console.log({user})
 
     },[user])
     
@@ -38,28 +58,47 @@ const BookingWidget = ({place}) => {
 
     // book a place function
     const bookAPlace= async()=>{
-        console.log("AirbnbHeader: ", airbnbHeader)
+        
+        setBookingLoad(true)
+    
         const placeId = place._id
         const price = place.price
         const bookingData ={
             placeId, checkIn, checkOut, numberOfGuests, name, email, price
         }
+
+        // console.log("Airbnb Header: ", airbnbHeader)
+        // console.log("Booking data: ", bookingData);
         try {
             const {data}= await axios.post('/bookings/book-a-place', bookingData, airbnbHeader);
             
             const bookingId = data._id
+
+            updateBookingAlert(true, "Booking Successfull!!!!", "green")
+
+            setBookingLoad(false)
             
             console.log(data)
             
             // navigate to
-            navigate(`/account/bookings/${bookingId}`);
+            setTimeout(() => {
+                navigate(`/account/bookings/${bookingId}`);
+            }, 2000);
+            
             
         } catch (error) {
+            updateBookingAlert(true, "Booking Not Successfull!!!!", "red")
+            setBookingLoad(false)
             console.log(error)
         }
     }
 
-    const airbnbHeader = getHeaders();
+
+    const navigateToLoginPage=()=>{
+        navigate('/login')
+    }
+
+    
 
   return (
     <div className=' shadow p-6 rounded-2xl border border-gray-300'>
@@ -85,7 +124,7 @@ const BookingWidget = ({place}) => {
             </div>
 
             {
-                numberOfNights > 0 && (
+                user && numberOfNights > 0 && (
                     <div className=' py-3 px-4 border-t border-t-gray-500'>
                         <div className=''>
                             <label htmlFor="" className='font-semibold text-sm'>FULL NAME</label>
@@ -107,20 +146,61 @@ const BookingWidget = ({place}) => {
             }
 
         </div>
+
+        {
+            bookingAlert?.popup && (
+                  <div className='booking-popup'>
+                    <p className={`${bookingAlert?.color}`}>{bookingAlert?.message}</p>
+                </div>
+            )
+        }
         
-        <button onClick={bookAPlace}  className='primary'>
-            Book this place 
-            {
-                numberOfNights > 0 && (
-                    <span> for {numberOfNights} {
-                        numberOfNights === 1 ?<span> Night</span> : <span> Nights</span>
-                    }</span>
+      
+        
+
+
+        {
+            user?.userEmail?(
+
+                <>
+                    {
+                        bookingLoad?(
+                            
+                    <button  disabled className='primary disabled-button'>
+                        <img src={loadingTwoGif} alt="" />
+                    </button>
+                        ):(
+                             <button disabled={numberOfNights<1?true:false}  onClick={bookAPlace}  className={`primary ${numberOfNights<1?'disabled-button':''}` }>
+                        {
+                            numberOfNights<1?`SET THE CHECK IN AND CHECKOUT`:`Book this place`
+                        }
+                        
+                        
+                        {
+                            numberOfNights > 0 && (
+                                <span> for {numberOfNights} {
+                                    numberOfNights === 1 ?<span> Night</span> : <span> Nights</span>
+                                }</span>
+                                
+                            )
+                        }
+                        
                     
-                )
-            }
-            
+                    </button>
+                        )
+                         
+                    }
+                </>
+
+               
+
+                
+            ):(
+                <button  onClick={navigateToLoginPage}  className='primary'>Please Login to book a place</button>
+            )
+        }
         
-        </button>
+        
 
         <div >
             {

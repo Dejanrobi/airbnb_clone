@@ -4,11 +4,14 @@ import Perks from '../Perks';
 import axios from 'axios'
 import { userGlobalContext } from '../context/UserContext';
 import PhotosUploader from '../PhotosUploader';
+import { loadingTwoGif } from '../assets';
 
 
 const AddPlacePage = () => {
 
     const { getHeaders } = userGlobalContext();
+
+    const [saveLoadBtn, setSaveLoadBtn] = useState(false);
 
     const { action } = useParams();
     const [title, setTitle] = useState();
@@ -82,6 +85,8 @@ const AddPlacePage = () => {
   
     async function addPhotoByLink(e){
       e.preventDefault();
+
+      
       
       
       try {
@@ -94,6 +99,8 @@ const AddPlacePage = () => {
         })
   
         setPhotoLink('');
+
+        
         
       } catch (error) {
         console.log(error)
@@ -147,6 +154,7 @@ const AddPlacePage = () => {
     const savePlace=async(e)=>{
       e.preventDefault();
       // console.log("form submitted")
+      setSaveLoadBtn(true);
   
       // submitting the data
       const placeData = {
@@ -164,10 +172,12 @@ const AddPlacePage = () => {
           console.log(responseData)
           navigate('/account/places');
           // history.push('/places/account');
+          setSaveLoadBtn(false);
           
         } catch (error) {
     
           console.log(error)
+          setSaveLoadBtn(false);
           
         }  
 
@@ -178,10 +188,12 @@ const AddPlacePage = () => {
           // console.log(responseData)
           navigate('/account/places');
           // history.push('/places/account');
+          setSaveLoadBtn(false);
           
         } catch (error) {
     
           console.log(error)
+          setSaveLoadBtn(false);
           
         }  
 
@@ -251,7 +263,17 @@ const AddPlacePage = () => {
               <input type='number' value={price} onChange={(e)=> setPrice(e.target.value)} placeholder='Price'/>
 
               <div>
-                <button type='submit' className='primary my-4'>Save</button>
+                {
+                  saveLoadBtn?(
+                    <button type='submit' className='primary my-4 disabled-button'>
+                      <img src={loadingTwoGif} alt="" />
+                    </button>
+                  ):(
+                    <button type='submit' className='primary my-4'>Save</button>
+                  )
+                }
+                
+                
               </div>
             </form>
           </div>

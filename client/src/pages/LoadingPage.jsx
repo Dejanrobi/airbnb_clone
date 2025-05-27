@@ -1,11 +1,22 @@
 import React from 'react'
 import { loadingGif } from '../assets/index';
 
+import '../css/LoadingPage.css';
+
 const LoadingPage = () => {
   return (
-    <div className='flex items-center justify-center h-screen'>
-        <img src={loadingGif} alt="Loading.." className='h-48 w-48' />
-    </div>
+
+    
+      <div className='loading-div  '>
+
+        <img src={loadingGif} alt="Loading.." className='h-28 w-28
+        ' />
+     
+        
+      </div>
+
+   
+    
   )
 }
 

@@ -11,6 +11,12 @@ const { BadRequestError, UnauthenticatedError } = require('../errors/index')
 const register= async(req, res)=>{
 
     const { name, email, password } = req.body;
+
+    console.log({
+        name, 
+        email, 
+        password
+    })
     
     // validating whether the values  are present
     // any missing, throw an error
@@ -33,6 +39,10 @@ const register= async(req, res)=>{
     const token = user.createJWT()
 
     // send back the token to the front end
+
+    console.log({
+        user
+    })
     res.status(StatusCodes.CREATED).json({user:{name: user.name}, token})
 
 }

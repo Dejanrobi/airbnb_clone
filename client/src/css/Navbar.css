@@ -1,0 +1,89 @@
+.nav-search-div .nav-search-input{
+    border: none;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+
+    font-size: 15px;
+    border-radius: 0px;
+}
+
+.nav-search-div{
+    display: flex;
+    flex: 1;
+    max-width: 50%;
+
+    position: relative;
+}
+
+.nav-search-div input:focus{
+    border: none;
+    outline: none;
+    border-radius: 0px;
+    
+}
+
+.nav-search-div .nav-searches{
+    position: absolute;
+
+    background-color: white;
+    padding: 20px 0px ;
+    top: 110%;
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+    flex: 1;
+    width: 85%;
+
+    z-index: 9999;
+
+}
+
+.nav-search-div .nav-searches .nav-single-search{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 20px;
+
+    
+
+    padding: 4px 10px;
+    
+
+
+}
+
+.nav-search-div .nav-searches .nav-single-search:hover{
+    background-color: rgb(231, 231, 231);
+}
+
+/* nav-searches */
+.nav-single-search img{
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+}
+
+.nav-single-search .name{
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.nav-single-search .location{
+    font-size: 14px;
+    color: grey;
+}
+
+.no-searched-item{
+    padding-left: 10px;
+    font-size: 14px;
+
+    color: grey;
+}
+
+
+

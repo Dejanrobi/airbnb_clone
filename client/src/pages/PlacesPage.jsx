@@ -5,6 +5,7 @@ import AddPlacePage from './AddPlacePage';
 import { userGlobalContext } from '../context/UserContext';
 import axios from 'axios';
 import PlaceImage from '../components/PlaceImage';
+import LoadingPage from './LoadingPage';
 
 
 const PlacesPage = () => {
@@ -16,6 +17,9 @@ const PlacesPage = () => {
   const airbnbHeader = getHeaders();
 
   const [myAccommodations, setMyAccommodations] = useState()
+
+
+  
   // console.log(myAccommodations)
 
   const getMyAccommodations = ()=>{
@@ -53,7 +57,9 @@ const PlacesPage = () => {
             </div>
 
             <div className=' mt-8'>
-              {
+
+              {/* <LoadingPage/> */}
+               {
                 myAccommodations&&(
                   <>
                     {
@@ -82,7 +88,7 @@ const PlacesPage = () => {
 
                   </>
                 )
-              }
+              } 
               
 
             </div>

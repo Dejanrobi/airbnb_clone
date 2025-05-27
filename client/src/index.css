@@ -14,3 +14,7 @@ textarea{
 button.primary{
     @apply bg-primary p-3 w-full text-white rounded-2xl mt-6
 }
+
+button.disabled-button{
+    background-color: rgb(247, 173, 163);;
+}
