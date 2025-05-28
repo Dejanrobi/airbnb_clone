@@ -107,13 +107,13 @@ const BookingWidget = ({place}) => {
         <div className='my-4 border border-gray-500 rounded-xl'>
             <div className='grid grid-cols-2 border-b border-b-gray-500'>
                 <div className='py-3 px-4'>
-                    <label htmlFor="" className='font-semibold text-sm'>CHECK IN</label>
-                    <input  type="date" name="checkin" id="checkin" value={checkIn} onChange={(e)=> setCheckIn(e.target.value) } />
+                    <label htmlFor="" className='font-semibold text-sm booking-widget-date-label'>CHECK IN</label>
+                    <input className='booking-widget-date block' type="date" name="checkin" id="checkin" value={checkIn} onChange={(e)=> setCheckIn(e.target.value) } />
                 </div>
                 
                 <div className='py-3 px-4 border-l border-l-gray-500'>
-                    <label htmlFor="" className='font-semibold text-sm'>CHECK OUT</label>
-                <input  type="date" name="checkout" id="checkout" value={checkOut} onChange={(e)=> setCheckOut(e.target.value)} />
+                    <label htmlFor="" className='font-semibold text-sm booking-widget-date-label'>CHECK OUT</label>
+                    <input className='booking-widget-date block'  type="date" name="checkout" id="checkout" value={checkOut} onChange={(e)=> setCheckOut(e.target.value)} />
                 </div>
 
             </div>

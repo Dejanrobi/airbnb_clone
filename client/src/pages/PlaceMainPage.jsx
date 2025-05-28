@@ -9,6 +9,8 @@ import PlaceGallery from '../components/PlaceGallery';
 import AddressLink from '../components/AddressLink';
 import LoadingPage from './LoadingPage';
 
+import '../css/PlaceMainPage.css';
+
 const PlaceMainPage = () => {
     const photoBaseUrl = import.meta.env.VITE_PHOTO_BASEURL
 
@@ -65,7 +67,7 @@ const PlaceMainPage = () => {
 
         {
             loadingPage?<LoadingPage/>:(
-                <div className='mt-4   py-4'>
+                <div className='mt-4   py-4 main-padding-left-right'>
                     <h1 className=' text-3xl font-semibold'>{place.title}</h1>
                     <AddressLink>
                         {place.address}
@@ -74,7 +76,7 @@ const PlaceMainPage = () => {
                     <PlaceGallery place={place}/>
                 
 
-                    <div className='grid gap-x-20 gap-y-8 grid-cols-[2fr_1fr] my-8'>
+                    <div className='place-main-descr-booking  my-8'>
                         <div>
                             <div className=''>
                                 <h2 className='font-semibold text-2xl mb-3'>Description</h2>

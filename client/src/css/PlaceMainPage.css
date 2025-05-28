@@ -1,0 +1,21 @@
+.place-main-descr-booking{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    
+    column-gap: 32px;
+}
+
+
+@media screen and (max-width:1200px) {
+    .place-main-descr-booking{
+        grid-template-columns: 1fr 1fr;
+    }
+    
+}
+
+@media screen and (max-width:830px) {
+    .place-main-descr-booking{
+        grid-template-columns: 1fr;
+    }
+    
+}

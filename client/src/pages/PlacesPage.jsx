@@ -7,6 +7,9 @@ import axios from 'axios';
 import PlaceImage from '../components/PlaceImage';
 import LoadingPage from './LoadingPage';
 
+// CSS
+import '../css/PlacesPage.css';
+
 
 const PlacesPage = () => {
 
@@ -56,7 +59,7 @@ const PlacesPage = () => {
               </Link>
             </div>
 
-            <div className=' mt-8'>
+            <div className=' mt-8 my-accommodations-container main-padding-left-right'>
 
               {/* <LoadingPage/> */}
                {
@@ -64,8 +67,8 @@ const PlacesPage = () => {
                   <>
                     {
                       myAccommodations.length > 0 && myAccommodations.map((accommodation)=>(
-                        <Link to={'/account/places/'+accommodation._id} className='flex gap-4 bg-gray-100 mb-4 p-4 rounded-2xl' key={accommodation._id}>
-                          <div className=' rounded-2xl w-36 h-32  bg-gray-300 grow-0 shrink-0'>
+                        <Link to={'/account/places/'+accommodation._id} className='flex gap-4 single-accommodation-div bg-gray-100 mb-4 p-4 rounded-2xl' key={accommodation._id}>
+                          <div className=' rounded-2xl  single-my-accommodation-image  bg-gray-300 grow-0 shrink-0'>
                             {
                               accommodation.photos.length > 0 &&(
                                 

@@ -1,0 +1,24 @@
+@media screen and (max-width:650px) {
+   
+    .add-place-container h2{
+        font-size: 18px;
+        margin-top: 3px;
+    }
+
+    .add-place-container p{
+        margin-bottom: 3px;
+    }
+
+    .photo-uploader-btn{
+        font-size: 14px;
+        /* padding: 0px;
+        padding-top: 0px; */
+    }
+
+    .add-place-container input{
+        font-size: 14px;
+        padding: 11px 11px;
+    }
+
+    
+}

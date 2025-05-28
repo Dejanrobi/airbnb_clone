@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 
+
+import '../css/PlaceGallery.css';
+
 const PlaceGallery = ({place}) => {
     const photoBaseUrl = import.meta.env.VITE_PHOTO_BASEURL
 
@@ -9,7 +12,7 @@ const PlaceGallery = ({place}) => {
         return (
             <div className='absolute inset-0 bg-black  min-h-screen py-8'>
                 <div className=' py-8 grid gap-6 bg-black'>
-                    <div className='flex justify-between fixed top-0 left-0 right-0 px-8 py-4 bg-black'>
+                    <div className='flex justify-between fixed top-0 left-0 right-0  py-4 bg-black main-padding-left-right'>
                         <button className=' flex gap-2 bg-white text-black font-semibold px-4 py-2 rounded-2xl' onClick={()=> setShowAllPhotos(false)}>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
                                 <path fillRule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
@@ -40,7 +43,7 @@ const PlaceGallery = ({place}) => {
                         
                     </div>
                     <div className='flex items-center justify-center mt-20 bg-black'>
-                        <div className=' flex gap-6 flex-wrap w-3/5 h-full justify-center align-middle '>
+                        <div className=' flex gap-6 flex-wrap place-gallery-container-popup h-full justify-center align-middle main-padding-left-right '>
                             {
                                 place?.photos?.length > 0 && place?.photos?.map((photo, index)=>(
                                     <div 
@@ -81,15 +84,15 @@ const PlaceGallery = ({place}) => {
     }
   return (
     <div className='relative'>
-        <div className='grid gap-8 grid-cols-[1fr_1fr] mt-6 rounded-3xl overflow-hidden'>
-            <div className='w-full h-96'>
+        <div className=' mt-6 rounded-3xl overflow-hidden place-gallery-container'>
+            <div className='w-full first-image'>
                 {
                     place?.photos?.[0] &&(
                         <img onClick={()=>setShowAllPhotos(true)}  className=' cursor-pointer w-full h-full object-cover ' src={`${photoBaseUrl}${place?.photos[0]}`} alt="" />
                     )
                 }
             </div>
-            <div className='grid gap-x-8 gap-y-8 grid-cols-[1fr_1fr]'>
+            <div className='place-gallery-inner-container'>
                 <div className='w-full h-44'>
                     {
                         place?.photos?.[1] &&(

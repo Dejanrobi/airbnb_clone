@@ -1,5 +1,8 @@
 import React from 'react'
 
+
+import "./css/PhotosUploader.css";
+
 const PhotosUploader = ({ uploadPhoto, addPhotoByLink, addedPhotos, setAddedPhotos, photoLink, setPhotoLink }) => {
     const photoBaseUrl = import.meta.env.VITE_PHOTO_BASEURL
  
@@ -22,12 +25,12 @@ const PhotosUploader = ({ uploadPhoto, addPhotoByLink, addedPhotos, setAddedPhot
   
     return (
     <>
-        <div className='flex gap-2'>
+           <div className='photo-uploader-input flex gap-4'>
             <input value={photoLink} 
                 onChange={(e)=> setPhotoLink(e.target.value)} 
                 type="text" placeholder={'Add using a link .......jpg'} />
-            <button onClick={addPhotoByLink} className='bg-gray-200 px-4 rounded-2xl'>Add&nbsp;photo</button>
-            </div>
+            <button onClick={addPhotoByLink} className=' photo-uploader-btn bg-gray-200 px-4  rounded-2xl'><p>Add&nbsp;Photo</p></button>
+        </div>
             <div className='mt-2 grid gap-2 grid-cols-3 md:grid-cols-4 lg:grid-cols-6'>
             {
                 addedPhotos &&(
@@ -75,7 +78,7 @@ const PhotosUploader = ({ uploadPhoto, addPhotoByLink, addedPhotos, setAddedPhot
             }
             
             
-            <label className='h-33 cursor-pointer flex items-center justify-center gap-2 border border-gray-400 bg-transparent rounded-2xl p-2 text-gray-600'>
+            <label className='photo-uploader-btn h-33 cursor-pointer flex items-center justify-center gap-2 border border-gray-400 bg-transparent rounded-2xl p-2 text-gray-600'>
                 <input type="file" multiple className='hidden' onChange={uploadPhoto} />
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z" />

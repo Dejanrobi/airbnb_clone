@@ -1,11 +1,13 @@
 import React from 'react'
 import { differenceInCalendarDays, format } from 'date-fns';
 
+import '../css/BookingsDate.css';
+
 const BookingDates = ({singleBooking}) => {
     const checkIn = singleBooking.checkIn
     const checkOut = singleBooking.checkOut
   return (
-    <div className='flex gap-8 text-sm text-gray-600   py-2'>
+    <div className='flex  text-sm text-gray-600   py-2 bookings-dates-div'>
                                         
         <div className='flex gap-1'>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">

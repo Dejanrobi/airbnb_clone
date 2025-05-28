@@ -1,3 +1,40 @@
 .no-bookings-div{
     text-align: center;
 }
+
+.single-booking-image-div{
+    width: 160px;
+}
+
+.booking-details-div{
+    padding: 12px 0px;
+
+    padding-left: 16px;
+}
+
+
+
+@media screen and (max-width:500px) {
+    .single-booking-div{
+        display: flex;
+        flex-direction: column;
+        row-gap: 12px;
+    }
+
+    .single-booking-image-div{
+        width: 100%;
+    }
+
+    .booking-details-div{
+      padding: 0px 12px;
+      padding-bottom: 16px;
+    }
+    
+    .booking-details-div h2{
+        font-size: 17px;
+    }
+
+    .booking-details-div .my-bookings-price{
+        font-size: 16px;
+    }
+}

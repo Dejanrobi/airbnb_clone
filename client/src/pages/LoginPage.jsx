@@ -55,7 +55,7 @@ const LoginPage = () => {
 
 
   return (
-    <div className='mt-4 grow flex items-center justify-around'>
+    <div className='mt-4 grow flex items-center justify-around main-padding-left-right'>
       <div className='mb-24'>
         <div className='test-account'>
           <p><strong>TEST ACCOUNT</strong></p>

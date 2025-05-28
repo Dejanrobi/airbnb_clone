@@ -1,9 +1,91 @@
 .main-page{
     width: 100%;
     height: 100%;
+
+    display: flex;
+    flex-direction: row;
+
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    /* column-gap: 20px; */
+    row-gap: 35px;
 }
 
 .loading-main-page{
     /* height: 80vh; */
     
+}
+
+.main-page-image-div {
+    height: 19rem;
+    /* width: 19rem; */
+    width: 100%;
+}
+
+.main-page-bnb-div{
+    width: 19rem;
+}
+
+
+@media screen and (max-width:1300px) {
+   .main-page-bnb-div{
+    width: 15rem;
+    }
+
+    .main-page-image-div {
+     height: 15rem;
+    }
+}
+
+@media screen and (max-width:1030px) {
+   .main-page-bnb-div{
+    width: 13rem;
+    }
+
+    .main-page-image-div {
+     height: 13rem;
+    }
+}
+
+@media screen and (max-width:900px) {
+   .main-page-bnb-div{
+    width: 16rem;
+    }
+
+    .main-page-image-div {
+     height: 16rem;
+    }
+}
+
+@media screen and (max-width:830px) {
+   .main-page-bnb-div{
+    width: 13rem;
+    }
+
+    .main-page-image-div {
+     height: 13rem;
+    }
+}
+
+@media screen and (max-width:680px) {
+   .main-page-bnb-div{
+    width: 17rem;
+    }
+
+    .main-page-image-div {
+     height: 17rem;
+    }
+}
+
+
+
+@media screen and (max-width:600px) {
+   .main-page-bnb-div{
+    width: 100%;
+    }
+
+    .main-page-image-div {
+     height: 15rem;
+    }
 }

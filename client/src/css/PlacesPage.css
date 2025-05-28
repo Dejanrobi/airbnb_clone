@@ -1,0 +1,17 @@
+.single-my-accommodation-image{
+    width: 180px;
+    height: 160px;
+}
+
+@media screen and (max-width:500px) {
+   .single-accommodation-div{
+    display: flex;
+    flex-direction: column;
+   }
+
+   .single-my-accommodation-image{
+        width: 100%;
+        height: 220px;
+   }
+    
+}

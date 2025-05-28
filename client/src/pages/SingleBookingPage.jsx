@@ -7,6 +7,9 @@ import PlaceGallery from '../components/PlaceGallery';
 import BookingDates from '../components/BookingDates';
 import { differenceInCalendarDays, format } from 'date-fns';
 
+// importing css
+import '../css/SingleBookingPage.css';
+
 const SingleBookingPage = () => {
 
     const { action } = useParams();
@@ -52,12 +55,12 @@ const SingleBookingPage = () => {
   return ( 
     <>
       {singleBooking &&(
-        <div>
+        <div className='main-padding-left-right'>
           
           <h1 className=' text-3xl font-semibold'>{singleBooking?.placeId?.title}</h1>
           <AddressLink className="my-2 block">{singleBooking?.placeId?.address}</AddressLink>
 
-          <div className='bg-gray-200 flex items-center justify-between p-4 mb-4 rounded-2xl'>
+          <div className='single-my-booking-details-cont bg-gray-200 flex items-center justify-between p-4 mb-4 rounded-2xl'>
             <div>
               <h2 className='text-xl'>Your booking information:</h2>
               <BookingDates singleBooking={singleBooking}/>

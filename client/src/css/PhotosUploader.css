@@ -1,0 +1,18 @@
+.photo-uploader-btn p{
+    display: inline;
+}
+
+@media screen and (max-width:650px) {
+   
+
+
+    .photo-uploader-btn{
+        font-size: 14px;
+        /* padding: 0px;
+        padding-top: 0px; */
+    }
+
+   
+
+    
+}

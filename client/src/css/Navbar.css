@@ -1,3 +1,14 @@
+.navbar-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    column-gap: 20px;
+
+    /* padding: 12px 10px; */
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
 .nav-search-div .nav-search-input{
     border: none;
     padding-top: 0px;
@@ -30,6 +41,9 @@
     background-color: white;
     padding: 20px 0px ;
     top: 110%;
+    left: 0;
+    right: 0;
+
     border-radius: 20px;
 
     display: flex;
@@ -85,5 +99,49 @@
     color: grey;
 }
 
+
+
+/* RESPONSIVENESS */
+@media screen and (max-width:1000px) {
+  .nav-search-div .nav-searches{
+
+    width: 100%;
+  }
+
+  .username-hamburger-btn{
+    display: none;
+  }
+
+  .username-account-btn{
+    display: none;
+  }
+
+  .airbnb-nav-text{
+    display: none;
+  }
+
+  .nav-search-div{
+   
+    max-width: 60%;
+   }
+
+}
+
+
+@media screen and (max-width:600px) {
+    .nav-search-div{
+   
+        max-width: 100%;
+    }
+
+    .navbar-section{
+       
+        column-gap: 15px;
+    }
+
+    .nav-user-container{
+        padding: 0px 0px;
+    }
+}
 
 

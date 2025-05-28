@@ -46,6 +46,8 @@ const UserContextProvider =({children})=>{
                 setUser(data)       
                 setLoading(false)    
             } catch (error) {
+                console.log("Fetch profile error: ", error)
+                console.log("Failed to connect to the Database")
                 setUser(false) 
                 setLoading(false)         
             }

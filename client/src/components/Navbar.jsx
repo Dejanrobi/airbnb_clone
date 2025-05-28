@@ -86,13 +86,13 @@ const Navbar = () => {
 
 
   return (
-    <header className='flex justify-between gap-10'>
+    <header className=' navbar-section main-padding-left-right'>
         <Link to={'/'} className='flex items-center gap-1'>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 -rotate-90">
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
           </svg>
 
-          <span className='font-bold text-xl'>airbnb</span>
+          <span className='font-bold text-xl airbnb-nav-text'>airbnb</span>
         </Link>
 
         <div className='flex items-center  gap-3 border border-gray-300 rounded-full py-1 px-6 shadow-md shadow-gray-200 nav-search-div'>
@@ -145,7 +145,7 @@ const Navbar = () => {
         
         {
           user ? (
-            <Link to={'/account'} className='flex items-center  gap-3 border border-gray-300 rounded-full p-0 px-4 shadow-m'>
+            <Link to={'/account'} className='flex items-center  gap-3 border border-gray-300 rounded-full p-0 px-4 shadow-m nav-user-container'>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 username-hamburger-btn">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
               </svg>
@@ -165,7 +165,7 @@ const Navbar = () => {
 
           ):(
             <Link to={'/login'} className='flex items-center  gap-3 border border-gray-300 rounded-full p-0 px-4 shadow-m'>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 username-hamburger-btn">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
               </svg>
               <div className='bg-gray-500 text-white rounded-full border border-gray-500 overflow-hidden'>

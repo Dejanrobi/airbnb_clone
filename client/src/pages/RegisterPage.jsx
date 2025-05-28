@@ -57,8 +57,14 @@ const RegisterPage = () => {
   }
 
   return (
-    <div className='mt-4 grow flex items-center justify-around'>
+    <div className='mt-4 grow flex items-center justify-around main-padding-left-right'>
       <div className='mb-24'>
+        <div className='test-account'>
+          <p><strong>TEST ACCOUNT</strong></p>
+          <p><strong>EMAIL: </strong>mistanojames12@gmail.com</p>
+          <p><strong>PASSWORD: </strong>123456</p>
+        </div>
+        
         <h1 className='text-4xl text-center mb-4'>Register</h1>
         
         <form className='max-w-md mx-auto' onSubmit={registerUser}>

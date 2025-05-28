@@ -6,6 +6,9 @@ import { userGlobalContext } from '../context/UserContext';
 import PhotosUploader from '../PhotosUploader';
 import { loadingTwoGif } from '../assets';
 
+// Import css
+import '../css/AddPlace.css'
+
 
 const AddPlacePage = () => {
 
@@ -206,7 +209,7 @@ const AddPlacePage = () => {
   
   return (
     <div>
-        <div>
+        <div className='main-padding-left-right add-place-container'>
             <form onSubmit={savePlace}>
               {preInput('Title', 'Title for your place. Should be short and catchy')}              
               <input type='text' value={title} onChange={(e)=> setTitle(e.target.value)} placeholder='title, for example: My Lovely Apartment'/>

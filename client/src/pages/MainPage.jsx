@@ -45,21 +45,21 @@ const MainPage = () => {
 
     <>
       {loadingPage?<LoadingPage/>:(
-        <div className='grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-10 lg:grid-cols-4 mt-10 main-page'>
+        <div className='  mt-10 main-page main-padding-left-right'>
 
      
         {
           allPlaces.length > 0 && allPlaces.map((place)=>(
-            <Link to={`/place/${place._id}`} key={place._id}>
-              <div className='bg-gray-500  rounded-2xl h-80 w-80'>
+            <Link to={`/place/${place._id}`} key={place._id} className='main-page-bnb-div'>
+              <div className='main-page-image-div bg-gray-500  rounded-2xl '>
                 {place.photos?.[0] &&(
                   <img className='rounded-2xl w-full h-full object-cover' src={`${photoBaseUrl}`+place.photos?.[0]} alt={place.title} />
                 )}
               </div>
 
-              <h2 className=' text-lg font-semibold mt-4  text-black text-opacity-90'>{place.title}</h2>
-              <h2 className=' text-black text-opacity-70 '>{place.address}</h2>
-              <div className='mt-1  text-black text-opacity-90'>
+              <h2 className=' main-page-bnb-title text-lg font-semibold mt-4  text-black text-opacity-90'>{place.title}</h2>
+              <h2 className=' main-page-bnb-location text-black text-opacity-70 '>{place.address}</h2>
+              <div className='main-page-bnb-price mt-1  text-black text-opacity-90'>
                 <span className='font-semibold text-lg'>${place.price}</span> night
               </div>
               
